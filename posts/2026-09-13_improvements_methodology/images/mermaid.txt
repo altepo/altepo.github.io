@@ -1,0 +1,11 @@
+<!-- https://mermaid.js.org/syntax/flowchart.html -->
+<!-- `flowchart LR` for horizontal -->
+```mermaid
+flowchart LR
+    mwe(Develop a minimal working solution)
+    pb(Identify a problem)
+    sol(Develop a solution)
+    eval(Evaluate the solution)
+    deploy(deploy)
+    mwe --> pb -->sol --> eval --> deploy
+```

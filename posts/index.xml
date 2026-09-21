@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Albert Tessier-Poirier</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://altepo.github.io/posts/</link>
     <description>Recent content in Posts on Albert Tessier-Poirier</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 20 Sep 2026 22:20:30 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://altepo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to select which problems to solve - Problem and Solutions Records (PSR)</title>
-      <link>http://localhost:1313/posts/2026-09-13_improvements_methodology/</link>
+      <link>https://altepo.github.io/posts/2026-09-13_improvements_methodology/</link>
       <pubDate>Sun, 13 Sep 2026 15:06:54 -0400</pubDate>
-      <guid>http://localhost:1313/posts/2026-09-13_improvements_methodology/</guid>
+      <guid>https://altepo.github.io/posts/2026-09-13_improvements_methodology/</guid>
       <description>A methodology to properly select which problems to solve. Problem and Solutions Records are used to guide and document the thought process.</description>
     </item>
   </channel>

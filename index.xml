@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Albert Tessier-Poirier</title>
-    <link>http://localhost:1313/</link>
+    <link>https://altepo.github.io/</link>
     <description>Recent content on Albert Tessier-Poirier</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 20 Sep 2026 22:20:30 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://altepo.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://altepo.github.io/about/</link>
       <pubDate>Sun, 13 Sep 2026 15:06:54 -0400</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://altepo.github.io/about/</guid>
       <description>&lt;!-- Hi, I&#39;m Albert.  --&gt;
 &lt;!-- This is where a short bio goes. --&gt;</description>
     </item>
     <item>
       <title>How to select which problems to solve - Problem and Solutions Records (PSR)</title>
-      <link>http://localhost:1313/posts/2026-09-13_improvements_methodology/</link>
+      <link>https://altepo.github.io/posts/2026-09-13_improvements_methodology/</link>
       <pubDate>Sun, 13 Sep 2026 15:06:54 -0400</pubDate>
-      <guid>http://localhost:1313/posts/2026-09-13_improvements_methodology/</guid>
+      <guid>https://altepo.github.io/posts/2026-09-13_improvements_methodology/</guid>
       <description>A methodology to properly select which problems to solve. Problem and Solutions Records are used to guide and document the thought process.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/supplemental_informations/2026-09-13_improvements_methodology/001_problem/</link>
+      <link>https://altepo.github.io/supplemental_informations/2026-09-13_improvements_methodology/001_problem/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/supplemental_informations/2026-09-13_improvements_methodology/001_problem/</guid>
+      <guid>https://altepo.github.io/supplemental_informations/2026-09-13_improvements_methodology/001_problem/</guid>
       <description>&lt;h1 id=&#34;problem-example&#34;&gt;Problem example&lt;/h1&gt;
 &lt;p&gt;This is a straightforward example.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
