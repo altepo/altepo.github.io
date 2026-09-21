@@ -6,7 +6,7 @@
     <description>Recent content on Albert Tessier-Poirier</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Sep 2026 11:09:39 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 12:20:25 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
@@ -15,6 +15,13 @@
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;!-- Hi, I&#39;m Albert.  --&gt;
 &lt;!-- This is where a short bio goes. --&gt;</description>
+    </item>
+    <item>
+      <title>How to select which problems to solve - Problem and Solutions Records (PSR)</title>
+      <link>http://localhost:1313/posts/2026-09-13_improvements_methodology/</link>
+      <pubDate>Sun, 13 Sep 2026 15:06:54 -0400</pubDate>
+      <guid>http://localhost:1313/posts/2026-09-13_improvements_methodology/</guid>
+      <description>A methodology to properly select which problems to solve. Problem and Solutions Records are used to guide and document the thought process.</description>
     </item>
     <item>
       <title></title>
