@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>How to select which problems to solve - Problem and Solutions Records (PSR) | Albert Tessier-Poirier</title>
+<meta name="keywords" content="">
+<meta name="description" content="A methodology to properly select which problems to solve. Problem and Solutions Records are used to guide and document the thought process.">
+<meta name="author" content="">
+<link rel="canonical" href="https://altepo.github.io/posts/2026-09-13_psr/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2f03a67edf7b72e723336e30cb703973b12e411fb84e8906e980726a3efdb3ef.css" integrity="sha256-LwOmft97cucjM24wy3A5c7EuQR&#43;4TokG6YByaj79s&#43;8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://altepo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://altepo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://altepo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://altepo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://altepo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://altepo.github.io/posts/2026-09-13_psr/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://altepo.github.io/posts/2026-09-13_psr/">
+  <meta property="og:site_name" content="Albert Tessier-Poirier">
+  <meta property="og:title" content="How to select which problems to solve - Problem and Solutions Records (PSR)">
+  <meta property="og:description" content="A methodology to properly select which problems to solve. Problem and Solutions Records are used to guide and document the thought process.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-09-13T15:06:54-04:00">
+    <meta property="article:modified_time" content="2026-09-21T08:36:34-04:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to select which problems to solve - Problem and Solutions Records (PSR)">
+  <meta name="twitter:description" content="A methodology to properly select which problems to solve. Problem and Solutions Records are used to guide and document the thought process.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://altepo.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "How to select which problems to solve - Problem and Solutions Records (PSR)",
+      "item": "https://altepo.github.io/posts/2026-09-13_psr/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to select which problems to solve - Problem and Solutions Records (PSR)",
+  "name": "How to select which problems to solve - Problem and Solutions Records (PSR)",
+  "description": "A methodology to properly select which problems to solve. Problem and Solutions Records are used to guide and document the thought process.",
+  "keywords": [
+    
+  ],
+  "articleBody": " 🚧 Draft — This is work in progress and will be updated frequently. A methodology to properly select which problems to solve. Problem and Solutions Records are used to guide and document the thought process.\nIntroduction This is proposed in the context of machine learning projects but the approach generalized more broadly. In machine learning projects, we typically follow a process like this:\nThe minimal working solution performs the task minimally but does not meet the performance targets and/or other requirements. Finding the problems and solving them is then an iterative process.\nIn practice, however, following the approach naively can lead to unsatisfactory outcomes, where time and resources are wasted on unproductive directions.\nExample 1 - Problem is not real\nWe develop a solution where a drone is used to produce 3D surface models from aerial imagery. We observe that poor imagery was produced during a day with light wind. Since robustness to light wind is a key requirement, we start working on stabilization approaches. After a few weeks, we realize that the propeller on that day was damaged, leading to mechanical vibration. The wind was not the cause of the problem. In fact, the stabilization algorithm is already very good.\nExample 2 - Problem Is not worth solving\nWe detect faces in images captured in an app by users. Analyzing metadata, we find that the detection algorithm does not work at all with a specific version of android phones. We rush to solve the bug and implement a solution successfully. We then realize that an android update was planned to solve the bug and was deployed in the meantime.\nExample 3 - Gains are not measurable\nWe observe that labels are not very accurate on a specific type of image input. This explains why our model performs poorly. We spend a month developing a promising unsupervised solution. Now, to evaluate it, we need a dataset with very accurate labels. We then realize that the only method to produce accurate labels, a gold standard technique, is way too costly for us. We can’t assess the performance of our solution.\nSuch examples arise quite often. Some are easy to detect early, but some are more subtle.\nWe propose below a methodology to reduce the likeliness of such unsatisfactory outcomes.\nSuch methodology can also be beneficial to document our process (e.g.: answer “what was the evidence about that problem already?”) and the work being done in a given project (e.g.: providing answers to a client asking what was done in the past few months).\nStill, it’s important to keep in mind that the rigor with which we analyze problems should not be pushed to the extreme in all cases. This is more like a slider that we need to adjust properly, based on various factors such as the project importance and complexity, the time required to develop the solution vs. the time to properly assess the problem, etc.\nThe Methodology The methodology consists in producing Problem and Solutions Records (PSRs). These documents should be concise but links to supporting work can be provided. The documentation approach is inspired by ADRs1. We use a markdown format.\nThe structure Directly in our repository, we put a subdirectory:\npsr/ 0001_problem-title/ problem.md solution_01_solution-title.md solution_02_solution-title.md ... Problem Records have this structure:\n--- title: The title status: Draft function: robustness to changing lighting conditions solution: '' --- ## Problem demonstration ... ## Test Construction ... Solution Records have this structure:\n--- title: The title status: Draft --- ## Approach ... ## Test Result ... ## Discussion ... Problem Record Before spending any time working on a solution, we first produce the problem record.\nOnce the problem record is completed and the test is constructed, the status should be changed from Draft to Opened. From that point on, the test is frozen. If the test turns out to be genuinely flawed mid-flight and must be modified, a notice must be added in the test construction section with the reason an the date.\nFrontmatter Key informations are provided in the markdown frontmatter. For example\n--- title: The title status: Draft function: robustness to changing lighting conditions solution: '' --- title: brief title describing the problem at hand.\nstatus: problem status among these:\nDraft: working document to discuss. Opened: Ready for solutions to be developed Rejected: The problem is considered not worth solving Solved: A satisfactory solution was found (a link should be provided) function: When a Functional Specification Document (FSD) or similar is used, this should indicate what function this problem hinder.\nThe related function ensures that working on the problem solves something the client needs and something where the return on investment was already considered sufficient. It can also help determine the priority of the problem.\nsolution: If the problem is solved, this indicates the chosen solution.\nProblem Demonstration A demonstration of the problem. This should describe the problem, offer sufficient evidence for it and provide arguments. The demonstration should be convincing. In order to build confidence about the nature and the existence of the problem, we should try to falsify it. Here are examples of questions worth asking:\nIs the data anecdotal? Is the drop in performance statistically significant? Are the labels used to assess the performance trustworthy? Is the problem real but not worth solving? Such a demonstration helps reduce the risk that we work on a problem that actually isn’t one.\nTest Construction Consider that a solution was found. We would like to say things like the solution increased the accuracy from 75% to 92% or the solution completely eliminated the bug occurring when a different setup was used.\nTo claim such a thing, we must construct a test where both the old solution and the new one can run. Construct that test now, before working on the solution. Test the current solution on it right away and record the results.\nThis step avoids the scenario where we realized only afterwards that we can’t easily quantify a gain in performance. It also prevents us from selecting a test biased to our solution. This is a preregistration2 approach.\nSolution Record Then, when a solution is developed and deemed complete, we produce a solution record (this is a proposal for a solution).\nFrontmatter Key informations are provided in the markdown frontmatter. For example:\n--- title: The solution title status: Draft --- title: brief title describing the solution proposal, helpful to distinguish solutions.\nstatus: the status of the solution. Here are possible status:\nDraft: working document to discuss. Final: solution proposal deemed completed. Approach A brief description of the approach. Links can be provided here.\nTest Result A summary of the results for the test provided in the problem record. This must be an objective description. Links can be provided here.\nDiscussion A discussion around the test results. Here, context can be provided, some ideas about what works and what didn’t, what to do next, etc.\nExample Provide examples (in other pages maybe?)\nReferences Following should be referenced. Should explain how these relate to the proposed methodology.\nhttps://en.wikipedia.org/wiki/DMAIC\nhttps://en.wikipedia.org/wiki/SMART_criteria\nhttps://en.wikipedia.org/wiki/Preregistration_(science)\nhttps://www.cos.io/initiatives/prereg\nhttps://www.pnas.org/doi/10.1073/pnas.1708274114\n…\narchitecture decision records (ADRs): https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions ↩︎\npreregistration: https://en.wikipedia.org/wiki/Preregistration_(science) ↩︎\n",
+  "wordCount" : "1181",
+  "inLanguage": "en",
+  "datePublished": "2026-09-13T15:06:54-04:00",
+  "dateModified": "2026-09-21T08:36:34-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altepo.github.io/posts/2026-09-13_psr/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Albert Tessier-Poirier",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://altepo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://altepo.github.io/" accesskey="h" title="Albert Tessier-Poirier (Alt + H)">Albert Tessier-Poirier</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      How to select which problems to solve - Problem and Solutions Records (PSR)
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-09-13 15:06:54 -0400 EDT'>Created September 13, 2026</span>&nbsp;·&nbsp;<span title='2026-09-21 08:36:34 -0400 EDT'>Updated September 21, 2026</span>
+
+</div>
+    
+<div class="post-note">Produced with support from <a href="https://skadra.com/">Skadra</a></div>
+</header> 
+  <div class="post-content md-content"><div class="status-banner">
+  <span class="badge">🚧 Draft — This is work in progress and will be updated frequently.</span>
+</div>
+<!-- TLDR:  -->
+<!-- https://gohugo.io/content-management/summaries/ -->
+<p>A methodology to properly select which problems to solve. Problem and Solutions Records are used to guide and document the thought process.</p>
+<h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>This is proposed in the context of machine learning projects but the approach generalized more broadly. In machine learning projects, we typically follow a process like this:</p>
+<p><img loading="lazy" src="/posts/2026-09-13_psr/images/graphs_dark.png"></p>
+<p>The minimal working solution performs the task minimally but does not meet the performance targets and/or other requirements. Finding the problems and solving them is then an iterative process.</p>
+<p>In practice, however, following the approach naively can lead to unsatisfactory outcomes, where time and resources are wasted on unproductive directions.</p>
+<p><em>Example 1 - Problem is not real</em></p>
+<p>We develop a solution where a drone is used to produce 3D surface models from aerial imagery. We observe that poor imagery was produced during a day with light wind. Since robustness to light wind is a key requirement, we start working on stabilization approaches. After a few weeks, we realize that the propeller on that day was damaged, leading to mechanical vibration. The wind was not the cause of the problem. In fact, the stabilization algorithm is already very good.</p>
+<p><em>Example 2 - Problem Is not worth solving</em></p>
+<p>We detect faces in images captured in an app by users. Analyzing metadata, we find that the detection algorithm does not work at all with a specific version of android phones. We rush to solve the bug and implement a solution successfully. We then realize that an android update was planned to solve the bug and was deployed in the meantime.</p>
+<!-- We then realize that only 0.01% of users are using that phone. -->
+<p><em>Example 3 - Gains are not measurable</em></p>
+<p>We observe that labels are not very accurate on a specific type of image input. This explains why our model performs poorly. We spend a month developing a promising unsupervised solution. Now, to evaluate it, we need a dataset with very accurate labels. We then realize that the only method to produce accurate labels, a gold standard technique, is way too costly for us. We can&rsquo;t assess the performance of our solution.</p>
+<p>Such examples arise quite often. Some are easy to detect early, but some are more subtle.</p>
+<p><strong>We propose below a methodology to reduce the likeliness of such unsatisfactory outcomes.</strong></p>
+<p>Such methodology can also be beneficial to document our process (e.g.: answer &ldquo;what was the evidence about that problem already?&rdquo;) and the work being done in a given project (e.g.: providing answers to a client asking what was done in the past few months).</p>
+<p>Still, it&rsquo;s important to keep in mind that the rigor with which we analyze problems should not be pushed to the extreme in all cases. This is more like a slider that we need to adjust properly, based on various factors such as the project importance and complexity, the time required to develop the solution vs. the time to properly assess the problem, etc.</p>
+<h2 id="the-methodology">The Methodology<a hidden class="anchor" aria-hidden="true" href="#the-methodology">#</a></h2>
+<p>The methodology consists in producing Problem and Solutions Records (PSRs).
+These documents should be concise but links to supporting work can be provided.
+The documentation approach is inspired by ADRs<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.
+We use a markdown format.</p>
+<h3 id="the-structure">The structure<a hidden class="anchor" aria-hidden="true" href="#the-structure">#</a></h3>
+<p>Directly in our repository, we put a subdirectory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>psr/
+</span></span><span style="display:flex;"><span>  0001_problem-title/
+</span></span><span style="display:flex;"><span>    problem.md
+</span></span><span style="display:flex;"><span>    solution_01_solution-title.md
+</span></span><span style="display:flex;"><span>    solution_02_solution-title.md
+</span></span><span style="display:flex;"><span>  ...
+</span></span></code></pre></div><p>Problem Records have this structure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">The title</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">status</span>: <span style="color:#ae81ff">Draft</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">function</span>: <span style="color:#ae81ff">robustness to changing lighting conditions</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">solution</span>: <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Problem demonstration
+</span></span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Test Construction
+</span></span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Solution Records have this structure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">The title</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">status</span>: <span style="color:#ae81ff">Draft</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Approach
+</span></span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Test Result
+</span></span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Discussion
+</span></span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h3 id="problem-record">Problem Record<a hidden class="anchor" aria-hidden="true" href="#problem-record">#</a></h3>
+<p>Before spending any time working on a solution, we first produce the problem record.</p>
+<p>Once the problem record is completed and the test is constructed, the status should be changed from <code>Draft</code> to <code>Opened</code>. From that point on, the test is frozen. If the test turns out to be genuinely flawed mid-flight and must be modified, a notice must be added in the test construction section with the reason an the date.</p>
+<ol>
+<li><strong>Frontmatter</strong></li>
+</ol>
+<p>Key informations are provided in the markdown frontmatter. For example</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">The title</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">status</span>: <span style="color:#ae81ff">Draft</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">function</span>: <span style="color:#ae81ff">robustness to changing lighting conditions</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">solution</span>: <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p><code>title</code>: brief title describing the problem at hand.</p>
+<p><code>status</code>: problem status among these:</p>
+<ul>
+<li><code>Draft</code>: working document to discuss.</li>
+<li><code>Opened</code>: Ready for solutions to be developed</li>
+<li><code>Rejected</code>: The problem is considered not worth solving</li>
+<li><code>Solved</code>: A satisfactory solution was found (a link should be provided)</li>
+</ul>
+<p><code>function</code>: When a Functional Specification Document (FSD) or similar is used, this should indicate what function this problem hinder.</p>
+<p>The related function ensures that working on the problem solves something the client needs and something where the return on investment was already considered sufficient. It can also help determine the priority of the problem.</p>
+<p><code>solution</code>: If the problem is solved, this indicates the chosen solution.</p>
+<ol start="2">
+<li><strong>Problem Demonstration</strong></li>
+</ol>
+<p>A demonstration of the problem. This should describe the problem, offer sufficient evidence for it and provide arguments. The demonstration should be convincing. In order to build confidence about the nature and the existence of the problem, we should try to falsify it. Here are examples of questions worth asking:</p>
+<ul>
+<li>Is the data anecdotal?</li>
+<li>Is the drop in performance statistically significant?</li>
+<li>Are the labels used to assess the performance trustworthy?</li>
+<li>Is the problem real but not worth solving?</li>
+</ul>
+<!-- https://en.wikipedia.org/wiki/Scientific_theory -->
+<!-- https://en.wikipedia.org/wiki/Statistical_hypothesis_test -->
+<p>Such a demonstration helps reduce the risk that we work on a problem that actually isn&rsquo;t one.</p>
+<ol start="3">
+<li><strong>Test Construction</strong></li>
+</ol>
+<p>Consider that a solution was found. We would like to say things like <em>the solution increased the accuracy from 75% to 92%</em> or <em>the solution completely eliminated the bug occurring when a different setup was used</em>.</p>
+<p>To claim such a thing, we must construct a test where both the old solution and the new one can run. Construct that test now, before working on the solution. Test the current solution on it right away and record the results.</p>
+<p>This step avoids the scenario where we realized only afterwards that we can&rsquo;t easily quantify a gain in performance. It also prevents us from selecting a test biased to our solution. This is a preregistration<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> approach.</p>
+<h3 id="solution-record">Solution Record<a hidden class="anchor" aria-hidden="true" href="#solution-record">#</a></h3>
+<p>Then, when a solution is developed and deemed complete, we produce a solution record (this is a proposal for a solution).</p>
+<ol>
+<li><strong>Frontmatter</strong></li>
+</ol>
+<p>Key informations are provided in the markdown frontmatter. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">The solution title</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">status</span>: <span style="color:#ae81ff">Draft</span>
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p><code>title</code>: brief title describing the solution proposal, helpful to distinguish solutions.</p>
+<p><code>status</code>: the status of the solution. Here are possible status:</p>
+<ul>
+<li><code>Draft</code>: working document to discuss.</li>
+<li><code>Final</code>: solution proposal deemed completed.</li>
+</ul>
+<ol start="2">
+<li><strong>Approach</strong></li>
+</ol>
+<p>A brief description of the approach. Links can be provided here.</p>
+<ol start="3">
+<li><strong>Test Result</strong></li>
+</ol>
+<p>A summary of the results for the test provided in the problem record. This must be an objective description. Links can be provided here.</p>
+<ol start="4">
+<li><strong>Discussion</strong></li>
+</ol>
+<p>A discussion around the test results. Here, context can be provided, some ideas about what works and what didn&rsquo;t, what to do next, etc.</p>
+<h2 id="example">Example<a hidden class="anchor" aria-hidden="true" href="#example">#</a></h2>
+<p><em>Provide examples (in other pages maybe?)</em></p>
+<!-- ```markdown
+---
+title: Model misses bad apples that are smaller than usual
+status: Opened
+function: robustness to varying apple sizes
+solution: ''
+---
+
+## Problem Demonstration
+A dataset was constructed with 500 apples. 
+
+...
+
+
+## Test Construction
+
+``` -->
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<!-- Refer to other approach, show similarity and contrast -->
+<p><em>Following should be referenced. Should explain how these relate to the proposed methodology.</em></p>
+<p><a href="https://en.wikipedia.org/wiki/DMAIC">https://en.wikipedia.org/wiki/DMAIC</a></p>
+<p><a href="https://en.wikipedia.org/wiki/SMART_criteria">https://en.wikipedia.org/wiki/SMART_criteria</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Preregistration_(science)">https://en.wikipedia.org/wiki/Preregistration_(science)</a></p>
+<p><a href="https://www.cos.io/initiatives/prereg">https://www.cos.io/initiatives/prereg</a></p>
+<p><a href="https://www.pnas.org/doi/10.1073/pnas.1708274114">https://www.pnas.org/doi/10.1073/pnas.1708274114</a></p>
+<p>&hellip;</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>architecture decision records (ADRs): <a href="https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions">https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>preregistration: <a href="https://en.wikipedia.org/wiki/Preregistration_(science)">https://en.wikipedia.org/wiki/Preregistration_(science)</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://altepo.github.io/">Albert Tessier-Poirier</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
